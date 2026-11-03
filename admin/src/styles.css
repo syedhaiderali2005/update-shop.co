@@ -1,0 +1,103 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.17 0.021 235);
+  --foreground: oklch(0.95 0.008 220);
+  --card: oklch(0.22 0.023 232);
+  --card-foreground: oklch(0.95 0.008 220);
+  --popover: oklch(0.22 0.023 232);
+  --popover-foreground: oklch(0.95 0.008 220);
+  --primary: oklch(0.62 0.11 182);
+  --primary-foreground: oklch(0.14 0.02 235);
+  --secondary: oklch(0.28 0.024 233);
+  --secondary-foreground: oklch(0.95 0.008 220);
+  --muted: oklch(0.27 0.022 233);
+  --muted-foreground: oklch(0.7 0.02 230);
+  --accent: oklch(0.3 0.03 220);
+  --accent-foreground: oklch(0.95 0.008 220);
+  --destructive: oklch(0.62 0.21 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --success: oklch(0.68 0.15 160);
+  --warning: oklch(0.8 0.15 85);
+  --border: oklch(0.3 0.024 233);
+  --input: oklch(0.3 0.024 233);
+  --ring: oklch(0.62 0.11 182);
+  --chart-1: oklch(0.62 0.11 182);
+  --chart-2: oklch(0.6 0.03 230);
+  --chart-3: oklch(0.72 0.12 185);
+  --chart-4: oklch(0.8 0.15 85);
+  --chart-5: oklch(0.62 0.21 25);
+  --sidebar: oklch(0.2 0.022 233);
+  --sidebar-foreground: oklch(0.9 0.01 225);
+  --sidebar-accent: oklch(0.27 0.03 200);
+  --sidebar-border: oklch(0.28 0.024 233);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@utility card-panel {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+
+/* Consistent interaction polish and accessible motion preferences. */
+html { scroll-behavior: smooth; }
+button, a, input, select, textarea { transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
